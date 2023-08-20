@@ -1,16 +1,16 @@
 @font-face {
   font-family: 'general-sans';
-  src: url(/home/saran/Spaces/Work/Clg/PT1/Frontend/PLayground/public/fonts/GeneralSans-Regular.ttf);
+  src: url(/fonts/GeneralSans-Regular.ttf) format('truetype');
 }
 
 @font-face {
   font-family: 'general-sans-semibold';
-  src: url(/home/saran/Spaces/Work/Clg/PT1/Frontend/PLayground/public/fonts/GeneralSans-Semibold.ttf);
+  src: url(/fonts/GeneralSans-Semibold.ttf) format('truetype');
 }
 
 @font-face {
   font-family: 'general-sans-medium';
-  src: url(/home/saran/Spaces/Work/Clg/PT1/Frontend/PLayground/public/fonts/GeneralSans-Medium.ttf);
+  src: url(/fonts/GeneralSans-Medium.ttf) format('truetype');
 }
 
 html,body {
