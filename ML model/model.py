@@ -28,7 +28,7 @@ def predictDisease(symptoms):
         "rf_model_prediction": rf_prediction,
         "nb_model_prediction": nb_prediction,
         "svm_model_prediction": svm_prediction,
-        "final_pediction": final_prediction
+        "final_prediction": final_prediction
     }
 
     return predictions
