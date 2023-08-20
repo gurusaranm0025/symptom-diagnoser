@@ -10,7 +10,6 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.get("/", async (req, res) => {
   console.log("success")
   const dataToSend = "Itching,Skin Rash,Nodal Skin Eruptions"
-  console.log(JSON.stringify(dataToSend))
 
   const response = await fetch("http://127.0.0.1:5000/model", {
     method: "POST",
@@ -21,7 +20,9 @@ app.get("/", async (req, res) => {
   });
 
   const result = await response.json();
-  res.json(result);
+  console.log(result)
+
+  res.render("index.ejs")
 })
 
 app.listen(port, () => {

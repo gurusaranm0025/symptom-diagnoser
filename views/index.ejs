@@ -1,0 +1,38 @@
+<%- include('partials/header.ejs') %>
+
+<nav class="navbar">
+  <div class="name-div">
+    <span class="name">Meddtor</span>
+  </div>
+  <div class="about-div">
+    <a href="" class="about">About</a>
+  </div>
+</nav>
+
+<div class="body-div">
+  <div class="form-div">
+    <form action="/predict" method="post">
+      <label for="symptoms">Symptoms</label>
+      <input
+        type="text"
+        id="symptoms"
+        name="symptoms"
+        placeholder="Enter the symptoms here..."
+      />
+      <button class="button default ripple">Submit</button>
+    </form>
+  </div>
+
+  <div class="abstract">
+    <%- include('svg.ejs') %>
+    <!-- <img src="" alt="animating abstract image.." /> -->
+  </div>
+
+  <div class="result-box">
+    <p class="result">Possible disease.</p>
+  </div>
+</div>
+
+<script src="scripts/blob.animation.js"></script>
+
+<%- include('partials/footer.ejs') %>
