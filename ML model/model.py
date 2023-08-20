@@ -33,4 +33,4 @@ def predictDisease(symptoms):
 
     return predictions
 
-print(predictDisease("Itching,Skin Rash,Nodal Skin Eruptions"))
+# print(predictDisease("Itching,Skin Rash,Nodal Skin Eruptions"))
