@@ -10,7 +10,7 @@ app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get("/", async (req, res) => {
-  console.log("success");
+  // console.log("success");
 
   res.render("index.ejs");
 });
@@ -27,7 +27,7 @@ app.post("/predict", async (req, res) => {
   });
 
   const result = await response.json();
-  console.log(result.final_prediction);
+  // console.log(result.final_prediction);
 
   res.render("index.ejs", {disease: result.final_prediction})
 
