@@ -16,4 +16,4 @@ def get_precaution(symptom):
     if value.lower() == symptom.lower():
         return weight_dict[key]
     
-print(get_precaution(input("Enter the disease here : ")))
+# print(get_precaution(input("Enter the disease here : ")))

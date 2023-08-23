@@ -16,4 +16,4 @@ def get_description(disease):
     if value.lower() == disease.lower():
         return descr_dict[key]
     
-print(get_description(input("Enter the disease here : ")))
+# print(get_description(input("Enter the disease here : ")))

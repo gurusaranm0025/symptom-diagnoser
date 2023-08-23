@@ -16,4 +16,4 @@ def get_precaution(disease):
     if value.lower() == disease.lower():
         return prec_dict[key]
     
-print(get_precaution(input("Enter the disease here : ")))
+# print(get_precaution(input("Enter the disease here : ")))
