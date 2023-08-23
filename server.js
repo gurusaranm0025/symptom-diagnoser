@@ -1,6 +1,7 @@
 import express from "express";
 import bodyParser from "body-parser";
 import fetch from "node-fetch";
+import evaluate from "./evaluate";
 
 const pythonBackendAPI = "http://127.0.0.1:5000"
 
@@ -16,7 +17,7 @@ app.get("/", async (req, res) => {
 });
 
 app.post("/predict", async (req, res) => {
-  const dataToSend = req.body.symptoms;
+  const dataToSend = evaluate(req.body.symptoms);
 
   const response = await fetch(`${pythonBackendAPI}/model`, {
     method: "POST",
@@ -32,6 +33,10 @@ app.post("/predict", async (req, res) => {
   res.render("index.ejs", {disease: result.final_prediction})
 
 });
+
+app.get("/result", (req, res) => {
+  res.render("result.ejs");
+})
 
 // app.post("/descr", async (req, res) => {
 //   const dataToSend = "GERD"

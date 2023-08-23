@@ -9,7 +9,10 @@ rf_model = joblib.load("/home/saran/Spaces/Work Space/Clg/PT1/Symptom Diagnoser/
 
 
 def predictDisease(symptoms):
+    # symptoms = [symptom.capitalize() for symptom in symptoms.split(",")]
     symptoms = symptoms.split(",")
+    # for key, symptom in enumerate(symptoms):
+    #     symptoms[key] = symptom.capitaize()
 
     input_data = [0] * len(data_dict["symptom_index"])
     for symptom in symptoms:
