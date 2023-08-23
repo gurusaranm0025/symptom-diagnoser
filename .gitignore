@@ -1,12 +1,13 @@
+<!--- / --->
 node_modules
 package-lock.json
 
+<!--- ML_models --->
 __pycache__
 Dataset
 Saved_models
-base_model.py
+base_models
 
+<!--- public/ --->
 fonts
 kute.min.js
-
-manipulate.py
