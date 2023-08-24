@@ -2,6 +2,7 @@ import express from "express";
 import bodyParser from "body-parser";
 import evaluate from "./serverScripts/evaluate.js";
 import customFetchPost from "./serverScripts/fetch.js";
+import getCurrentLocalTime from "./serverScripts/localeTime.js";
 
 const pythonBackendAPI = "http://127.0.0.1:5000"
 
@@ -12,7 +13,6 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 var final_prediction;
 var symptoms;
-var date = new Date();
 
 // Root
 app.get("/", async (req, res) => {
@@ -26,7 +26,7 @@ app.post("/predict", async (req, res) => {
 
   const result = await customFetchPost(`${pythonBackendAPI}/model`, dataToSend)
   if (result.error === true) {
-    console.error(result, date.toLocaleString())
+    console.error(result,getCurrentLocalTime())
     final_prediction = "error";
     symptoms = "error";
   } else {
