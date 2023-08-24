@@ -1,8 +1,19 @@
-export default function evaluate(symptoms) {
+export default function evaluate(symptoms="itching, shivering") {
   let symptoms_arr = symptoms.split(",");
-  let final_arr = symptoms_arr.array.forEach(element => {
-    return element.charAt(0).toUpperCase() +element.slice(1).lower()
+  console.log(symptoms_arr)
+  let final_arr = []
+  symptoms_arr.forEach(element => {
+    final_arr.push(capitalizeString(element.trim()))
   });
-
-  return (final_arr.join(","))
+  return final_arr;
 }
+
+function capitalizeString(string) {
+  const firstLetter  = string[0].toUpperCase();
+  const restOfTheLetter  = string.slice(1);
+
+  const capitalizedWord = firstLetter+restOfTheLetter;
+  return capitalizedWord;
+}
+
+evaluate("itching, shivering")
