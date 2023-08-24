@@ -11,8 +11,12 @@
 
 <div class="grid">
   <div class="result-box">
-    <h3 class="disease-name">Disease</h3>
-    <p class="description">description</p>
+    <% if (locals.disease) { %>
+    <h3 class="disease-name"><%= disease %></h3>
+    <% } %>
+    <% if (locals.description) { %>
+    <p class="description"><%= description %></p>
+    <% } %>
   </div>
   <div class="extra-box">
     <h3 class="precautions">Precautions</h3>
