@@ -26,9 +26,15 @@
           <li><%= element %></li>
         <% }); %>
         <% } %>
-        <!-- <li></li>
-      <li>symptom1</li>
-      <li>symptom2</li> -->
+    </ul>
+
+    <h4>Symptoms severity:</h4>
+    <ul>
+      <% if(locals.severeity) { %>
+        <% for(let key in severeity) { %>
+          <li><%= key %> : <%= severeity[key] %></li>
+        <% } %>
+      <% } %>
     </ul>
   </div>
 </div>

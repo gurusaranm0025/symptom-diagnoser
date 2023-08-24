@@ -1,6 +1,5 @@
 import express from "express";
 import bodyParser from "body-parser";
-import fetch from "node-fetch";
 import evaluate from "./serverScripts/evaluate.js";
 import customFetchPost from "./serverScripts/fetch.js";
 
@@ -16,15 +15,12 @@ var symptoms;
 
 // Root
 app.get("/", async (req, res) => {
-  // console.log("success");
-
   res.render("index.ejs");
 });
 
 app.post("/predict", async (req, res) => {
   const dataToSend = evaluate(req.body.symptoms);
   symptoms = dataToSend.split(",")
-  console.log(symptoms)
 
   const result = await customFetchPost(`${pythonBackendAPI}/model`, dataToSend)
   final_prediction = result.final_prediction;
@@ -37,8 +33,8 @@ app.get("/result",async (req, res) => {
 
   const descriptionResult = await customFetchPost(`${pythonBackendAPI}/description`, final_prediction)
   const precautionResult = await customFetchPost(`${pythonBackendAPI}/precaution`, final_prediction)
-  // console.log(precautionResult)
-  res.render("result.ejs", {disease: final_prediction, description: descriptionResult, precautions: precautionResult});
+  const severeityResult = await customFetchPost(`${pythonBackendAPI}/severeity`, symptoms)
+  res.render("result.ejs", {disease: final_prediction, description: descriptionResult, precautions: precautionResult, severeity: severeityResult});
 })
 
 app.listen(port, () => {

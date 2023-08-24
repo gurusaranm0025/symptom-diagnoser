@@ -22,4 +22,4 @@ data_dict = {
 }
 
 print("data_dict variable sent successfully.")
-print(data_dict)
+# print(data_dict)

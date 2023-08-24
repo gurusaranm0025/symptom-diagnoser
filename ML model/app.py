@@ -2,6 +2,7 @@ from flask import Flask, request, jsonify
 from model import predictDisease
 from description_script import get_description
 from precaution_script import get_precaution
+from symptom_severity_script import get_symptom_severeity
 
 app = Flask(__name__)
 
@@ -13,14 +14,17 @@ def diagnose():
 @app.route("/description", methods=['POST'])
 def description():
     data = request.json
-    print(data)
     return jsonify(get_description(data))
 
 @app.route("/precaution", methods=['POST'])
 def precaution():
     data = request.json
-    print(data)
     return jsonify(get_precaution(data))
+
+@app.route("/severeity", methods=['POST'])
+def severeity():
+    data = request.json
+    return get_symptom_severeity(data)
 
 if __name__ == "__main__":
     app.run()

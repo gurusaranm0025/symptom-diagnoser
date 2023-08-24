@@ -11,9 +11,16 @@ weight_dict = {}
 for index, value in enumerate(data["weight"]):
    weight_dict[index] = value
 
-def get_precaution(symptom):
+def get_symptom_severeity(symptoms):
+  severeity = {}
   for key, value in enumerate(data["Symptom"]):
-    if value.lower() == symptom.lower():
-        return weight_dict[key]
+    moded_value = value.split("_")
+    moded_value = " ".join(moded_value)
+    for symptom in symptoms:
+      if moded_value.lower() == symptom.lower():
+          severeity[symptom] = weight_dict[key]
+  
+  return severeity
     
-# print(get_precaution(input("Enter the disease here : ")))
+# print(get_precaution(input("Enter the symptoms here : ")))
+# print(get_symptom_severeity([ 'Itching', 'Skin Rash', 'Nodal Skin Eruptions' ]))
