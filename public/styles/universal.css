@@ -20,16 +20,23 @@ body {
   background-color: #fcedf8;
   /* background-color: #f9e1d7; */
   scroll-behavior: smooth;
-  overflow: hidden;
   line-height: 1.5;
 }
+
+/* .sticky {
+  position: fixed;
+  top: 0;
+  width: 90vw;
+  z-index: 100;
+} */
+
 
 nav {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: 1fr;
-  margin: 25px 20px 10px 20px;
-  height: 45px;
+  padding: 25px 20px 10px 20px;
+  height: 5%;
 }
 
 .name-div {
@@ -40,21 +47,22 @@ nav {
 
 .name {
   font-family: "general-sans-semibold", sans-serif;
-  margin: 0 10px;
+  padding: 0 10px;
   color: #831709;
 }
 
 .about-div {
   display: flex;
+  flex-direction: row;
   align-items: center;
   justify-content: end;
 }
 
-.about {
+.about, .help, .home {
   font-family: "general-sans-medium", sans-serif;
   text-decoration: none;
   color: #831709;
-  margin-right: 20px;
+  padding-right: 20px;
   font-size: large;
   letter-spacing: 1.5px;
 }

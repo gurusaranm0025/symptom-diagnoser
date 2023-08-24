@@ -1,6 +1,6 @@
 import pandas as pd
 
-DATA_PATH = "/home/saran/Spaces/Work Space/Clg/PT1/Symptom Diagnoser/ML model/Dataset/symptom_precaution.csv"
+DATA_PATH = "/home/saran/Spaces/Work Space/Clg/PT1/Symptom Diagnoser/Backend (Python)/Dataset/symptom_precaution.csv"
 data = pd.read_csv(DATA_PATH).dropna(axis=1)
 
 disease_dict = {}

@@ -3,9 +3,9 @@ import numpy as np
 from statistics import mode
 from data_dict import data_dict
 
-svm_model = joblib.load("/home/saran/Spaces/Work Space/Clg/PT1/Symptom Diagnoser/ML model/Saved_models/final_svm_model.pkl")
-nb_model = joblib.load("/home/saran/Spaces/Work Space/Clg/PT1/Symptom Diagnoser/ML model/Saved_models/final_nb_model.pkl")
-rf_model = joblib.load("/home/saran/Spaces/Work Space/Clg/PT1/Symptom Diagnoser/ML model/Saved_models/final_rf_model.pkl")
+svm_model = joblib.load("/home/saran/Spaces/Work Space/Clg/PT1/Symptom Diagnoser/Backend (Python)/Saved_models/final_svm_model.pkl")
+nb_model = joblib.load("/home/saran/Spaces/Work Space/Clg/PT1/Symptom Diagnoser/Backend (Python)/Saved_models/final_nb_model.pkl")
+rf_model = joblib.load("/home/saran/Spaces/Work Space/Clg/PT1/Symptom Diagnoser/Backend (Python)/Saved_models/final_rf_model.pkl")
 
 
 def predictDisease(symptoms):

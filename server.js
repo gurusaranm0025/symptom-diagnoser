@@ -3,6 +3,7 @@ import bodyParser from "body-parser";
 import evaluate from "./serverScripts/evaluate.js";
 import customFetchPost from "./serverScripts/fetch.js";
 import getCurrentLocalTime from "./serverScripts/localeTime.js";
+import symptomsList from "./serverScripts/helpDetails.js";
 
 const pythonBackendAPI = "http://127.0.0.1:5000"
 
@@ -46,6 +47,23 @@ app.get("/result",async (req, res) => {
     const severeityResult = await customFetchPost(`${pythonBackendAPI}/severeity`, symptoms)
     res.render("result.ejs", {disease: final_prediction, description: descriptionResult, precautions: precautionResult, severeity: severeityResult});  
   }
+})
+
+// Help
+
+app.get("/help", (req,res) => {
+  // dividing the long array of symptoms into two half arrays to display them neatly 
+  // and to reduce the code on templates
+  const middleIndex = Math.floor(symptomsList.length / 2);
+  const firstHalf = symptomsList.slice(0, middleIndex);
+  const secondHalf = symptomsList.slice(middleIndex);
+  
+  res.render("help.ejs", {firstHalf: firstHalf, secondHalf: secondHalf});
+})
+
+// About
+app.get("/about", (req, res) => {
+  res.render("about.ejs");
 })
 
 app.listen(port, () => {
