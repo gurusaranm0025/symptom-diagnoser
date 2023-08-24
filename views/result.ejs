@@ -11,6 +11,9 @@
 
 <div class="grid">
   <div class="result-box">
+    <% if (locals.error) { %>
+      <h5 class="error"><%= error %></h5>
+    <% } %>
     <% if (locals.disease) { %>
     <h3 class="disease-name"><%= disease %></h3>
     <% } %> <% if (locals.description) { %>
@@ -18,25 +21,28 @@
     <% } %>
   </div>
   <div class="extra-box">
+    <% if (locals.precautions) { %>
     <h3 class="precautions">Precautions</h3>
     <ul class="severity">
-      <% if (locals.precautions) { %> <% precautions.forEach(element => { %>
+      <% precautions.forEach(element => { %>
       <li><%= element %></li>
-      <% }); %> <% } %>
+      <% }); %>
     </ul>
-
-    <h4>Symptoms severity:</h4>
+    <% } %>
+    <% if(locals.severeity) { %>
+    <h3 class="severeity">Symptoms severity:</h3>
     <ul>
-      <% if(locals.severeity) { %> <% for(let key in severeity) { %>
+      <% for(let key in severeity) { %>
       <li><%= key %> : <%= severeity[key] %></li>
-      <% } %> <% } %>
+      <% } %>
     </ul>
+    <% } %>
   </div>
 </div>
 
 <script>
   if (performance.navigation.type === 1) {
-    window.location.href = "/"
+    window.location.href = "/";
   }
 </script>
 

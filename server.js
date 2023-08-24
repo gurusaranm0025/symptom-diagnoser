@@ -12,6 +12,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 var final_prediction;
 var symptoms;
+var date = new Date();
 
 // Root
 app.get("/", async (req, res) => {
@@ -21,19 +22,30 @@ app.get("/", async (req, res) => {
 app.post("/predict", async (req, res) => {
   const dataToSend = evaluate(req.body.symptoms);
   symptoms = dataToSend.split(",")
+  // console.log(dataToSend);
 
   const result = await customFetchPost(`${pythonBackendAPI}/model`, dataToSend)
-  final_prediction = result.final_prediction;
+  if (result.error === true) {
+    console.error(result, date.toLocaleString())
+    final_prediction = "error";
+    symptoms = "error";
+  } else {
+    final_prediction = result.final_prediction;
+  }
 
   res.redirect("/result")
 });
 
 // Result
 app.get("/result",async (req, res) => {
-  const descriptionResult = await customFetchPost(`${pythonBackendAPI}/description`, final_prediction)
-  const precautionResult = await customFetchPost(`${pythonBackendAPI}/precaution`, final_prediction)
-  const severeityResult = await customFetchPost(`${pythonBackendAPI}/severeity`, symptoms)
-  res.render("result.ejs", {disease: final_prediction, description: descriptionResult, precautions: precautionResult, severeity: severeityResult});  
+  if (final_prediction === "error") {
+    res.render("result.ejs", {error: "It seems there's an error. Please visit the help page to see how to search with the symptoms."});      
+  } else {
+    const descriptionResult = await customFetchPost(`${pythonBackendAPI}/description`, final_prediction)
+    const precautionResult = await customFetchPost(`${pythonBackendAPI}/precaution`, final_prediction)
+    const severeityResult = await customFetchPost(`${pythonBackendAPI}/severeity`, symptoms)
+    res.render("result.ejs", {disease: final_prediction, description: descriptionResult, precautions: precautionResult, severeity: severeityResult});  
+  }
 })
 
 app.listen(port, () => {

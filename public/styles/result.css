@@ -74,6 +74,9 @@ nav {
   justify-content: center;
 }
 
+h5 {
+  font-size: 2.5rem;
+}
 .disease-name {
   font-family: 'general-sans-semibold', sans-serif;
   font-size: 3rem;
@@ -92,7 +95,7 @@ nav {
   justify-content: center;
 }
 
-.precautions {
+.precautions, .severeity {
   font-family: 'general-sans-semibold',sans-serif;
   font-size: 3rem;
 }

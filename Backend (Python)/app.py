@@ -14,17 +14,22 @@ def diagnose():
 @app.route("/description", methods=['POST'])
 def description():
     data = request.json
-    return jsonify(get_description(data))
+    if data != "error":
+        return jsonify(get_description(data))
+    else:
+        return "error"
 
 @app.route("/precaution", methods=['POST'])
 def precaution():
     data = request.json
-    return jsonify(get_precaution(data))
+    if data != "error":
+        return jsonify(get_precaution(data))
 
 @app.route("/severeity", methods=['POST'])
 def severeity():
     data = request.json
-    return get_symptom_severeity(data)
+    if data != "error":
+        return get_symptom_severeity(data)
 
 if __name__ == "__main__":
     app.run()
