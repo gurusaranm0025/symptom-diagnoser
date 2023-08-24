@@ -13,3 +13,6 @@ def diagnose():
 def description():
     data = request.json
     return jsonify(get_description(data))
+
+if __name__ == "__main__":
+    app.run()

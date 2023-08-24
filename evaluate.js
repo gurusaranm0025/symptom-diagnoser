@@ -5,7 +5,7 @@ export default function evaluate(symptoms="itching, shivering") {
   symptoms_arr.forEach(element => {
     final_arr.push(capitalizeString(element.trim()))
   });
-  return final_arr;
+  return final_arr.join(", ");
 }
 
 function capitalizeString(string) {
@@ -16,4 +16,4 @@ function capitalizeString(string) {
   return capitalizedWord;
 }
 
-evaluate("itching, shivering")
+// console.log(evaluate("itching, shivering"))

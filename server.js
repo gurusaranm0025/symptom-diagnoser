@@ -1,7 +1,7 @@
 import express from "express";
 import bodyParser from "body-parser";
 import fetch from "node-fetch";
-import evaluate from "./evaluate";
+import evaluate from "./evaluate.js";
 
 const pythonBackendAPI = "http://127.0.0.1:5000"
 
