@@ -30,11 +30,10 @@ app.post("/predict", async (req, res) => {
 
 // Result
 app.get("/result",async (req, res) => {
-
   const descriptionResult = await customFetchPost(`${pythonBackendAPI}/description`, final_prediction)
   const precautionResult = await customFetchPost(`${pythonBackendAPI}/precaution`, final_prediction)
   const severeityResult = await customFetchPost(`${pythonBackendAPI}/severeity`, symptoms)
-  res.render("result.ejs", {disease: final_prediction, description: descriptionResult, precautions: precautionResult, severeity: severeityResult});
+  res.render("result.ejs", {disease: final_prediction, description: descriptionResult, precautions: precautionResult, severeity: severeityResult});  
 })
 
 app.listen(port, () => {
