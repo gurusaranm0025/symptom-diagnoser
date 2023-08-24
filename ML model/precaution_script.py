@@ -14,6 +14,6 @@ for index, value in enumerate(data["Precaution"]):
 def get_precaution(disease):
   for key, value in enumerate(data["Disease"]):
     if value.lower() == disease.lower():
-        return prec_dict[key]
+        return prec_dict[key].split(",")
     
 # print(get_precaution(input("Enter the disease here : ")))

@@ -1,16 +1,18 @@
 import express from "express";
 import bodyParser from "body-parser";
 import fetch from "node-fetch";
-import evaluate from "./evaluate.js";
+import evaluate from "./serverScripts/evaluate.js";
+import customFetchPost from "./serverScripts/fetch.js";
 
 const pythonBackendAPI = "http://127.0.0.1:5000"
 
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: true }));
 
 var final_prediction;
+var symptoms;
 
 // Root
 app.get("/", async (req, res) => {
@@ -21,55 +23,23 @@ app.get("/", async (req, res) => {
 
 app.post("/predict", async (req, res) => {
   const dataToSend = evaluate(req.body.symptoms);
+  symptoms = dataToSend.split(",")
+  console.log(symptoms)
 
-  const response = await fetch(`${pythonBackendAPI}/model`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(dataToSend),
-  });
-
-  const result = await response.json();
+  const result = await customFetchPost(`${pythonBackendAPI}/model`, dataToSend)
   final_prediction = result.final_prediction;
-  // console.log(result.final_prediction);
 
   res.redirect("/result")
 });
 
 // Result
 app.get("/result",async (req, res) => {
-  const dataToSend = final_prediction
 
-  const response = await fetch(`${pythonBackendAPI}/description`, {
-    method:"POST",
-    headers:{
-      "Content-type": "application/json",
-    },
-    body: JSON.stringify(dataToSend)
-  });
-
-  const result = await response.json();
-
-  res.render("result.ejs", {disease: final_prediction, description: result});
+  const descriptionResult = await customFetchPost(`${pythonBackendAPI}/description`, final_prediction)
+  const precautionResult = await customFetchPost(`${pythonBackendAPI}/precaution`, final_prediction)
+  // console.log(precautionResult)
+  res.render("result.ejs", {disease: final_prediction, description: descriptionResult, precautions: precautionResult});
 })
-
-//Result: descr
-// app.post("/descr", async (req, res) => {
-//   const dataToSend = final_prediction
-
-//   const response = await fetch(`${pythonBackendAPI}/description`, {
-//     method:"POST",
-//     headers:{
-//       "Content-type": "application/json",
-//     },
-//     body: JSON.stringify(dataToSend)
-//   });
-
-//   const result = await response.json();
-//   // console.log(result);
-//   res.send(result);
-// })
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);

@@ -21,8 +21,14 @@
   <div class="extra-box">
     <h3 class="precautions">Precautions</h3>
     <ul class="severity">
+      <% if (locals.precautions) { %>
+        <% precautions.forEach(element => { %>
+          <li><%= element %></li>
+        <% }); %>
+        <% } %>
+        <!-- <li></li>
       <li>symptom1</li>
-      <li>symptom2</li>
+      <li>symptom2</li> -->
     </ul>
   </div>
 </div>
