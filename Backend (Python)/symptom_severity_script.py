@@ -9,18 +9,19 @@ for index, value in enumerate(data["Symptom"]):
 
 weight_dict = {}
 for index, value in enumerate(data["weight"]):
-   weight_dict[index] = value
+    weight_dict[index] = value
 
-def get_symptom_severeity(symptoms):
-  severeity = {}
-  for key, value in enumerate(data["Symptom"]):
-    moded_value = value.split("_")
-    moded_value = " ".join(moded_value)
-    for symptom in symptoms:
-      if moded_value.lower() == symptom.lower():
-          severeity[symptom] = weight_dict[key]
-  
-  return severeity
-    
+
+def get_symptom_severity(symptoms):
+    severity = {}
+    for key, value in enumerate(data["Symptom"]):
+        modified_value = value.split("_")
+        modified_value = " ".join(modified_value)
+        for symptom in symptoms:
+            if modified_value.lower() == symptom.lower():
+                severity[symptom] = weight_dict[key]
+
+    return severity
+
 # print(get_precaution(input("Enter the symptoms here : ")))
-# print(get_symptom_severeity([ 'Itching', 'Skin Rash', 'Nodal Skin Eruptions' ]))
+# print(get_symptom_severity([ 'Itching', 'Skin Rash', 'Nodal Skin Eruptions' ]))
