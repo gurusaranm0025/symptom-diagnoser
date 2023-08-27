@@ -44,8 +44,8 @@ app.get("/result",async (req, res) => {
   } else {
     const descriptionResult = await customFetchPost(`${pythonBackendAPI}/description`, final_prediction)
     const precautionResult = await customFetchPost(`${pythonBackendAPI}/precaution`, final_prediction)
-    const severeityResult = await customFetchPost(`${pythonBackendAPI}/severity`, symptoms)
-    res.render("result.ejs", {disease: final_prediction, description: descriptionResult, precautions: precautionResult, severeity: severeityResult});  
+    const severityResult = await customFetchPost(`${pythonBackendAPI}/severity`, symptoms)
+    res.render("result.ejs", {disease: final_prediction, description: descriptionResult, precautions: precautionResult, severity: severityResult});  
   }
 })
 
