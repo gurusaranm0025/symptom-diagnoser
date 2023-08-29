@@ -11,13 +11,12 @@ rf_model = joblib.load("/home/saran/Spaces/Work Space/Clg/PT1/Symptom Diagnoser/
 def predictDisease(symptoms):
     try:
         symptoms = symptoms.split(",")
-
+        print(symptoms)
         input_data = [0] * len(data_dict["symptom_index"])
         for symptom in symptoms:
             index = data_dict['symptom_index'][symptom]
             input_data[index] = 1
-        
-        input_data = np.array(input_data).reshape(1,-1)
+        input_data = np.array(input_data).reshape(1, -1)
 
         rf_prediction = data_dict["prediction_classes"][rf_model.predict(input_data)[0]]
         nb_prediction = data_dict['prediction_classes'][nb_model.predict(input_data)[0]]
@@ -38,4 +37,4 @@ def predictDisease(symptoms):
         print(str(e))
         return {"final_prediction": "error", "error":True}
 
-print(predictDisease("Cold"))
+# print(predictDisease("Cold"))

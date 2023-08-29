@@ -28,8 +28,10 @@ nav {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: 1fr;
+  gap: 25px;
   padding: 25px 20px 10px 20px;
   height: 5%;
+  color: #131b23ff;
 }
 
 .name-div {
@@ -41,7 +43,6 @@ nav {
 .name {
   font-family: "general-sans-semibold", sans-serif;
   padding: 0 10px;
-  color: #831709;
 }
 
 .about-div {
@@ -52,9 +53,9 @@ nav {
 }
 
 .about, .help, .home {
+  color: #131b23ff;
   font-family: "general-sans-medium", sans-serif;
   text-decoration: none;
-  color: #831709;
   padding-right: 20px;
   font-size: large;
   letter-spacing: 1.5px;
