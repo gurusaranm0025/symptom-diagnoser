@@ -1,3 +1,7 @@
+*{
+  color: #131b23ff;
+}
+
 .grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -33,13 +37,23 @@
 .heading {
   font-family: 'general-sans-medium', sans-serif;
   font-size: 2rem;
-  color: #831709;
+}
+
+.heading-link {
+  color: #18435aff;
+  text-decoration: none;
+  transition: all .3s ease;
+}
+
+.heading-link:hover {
+  color: #007c8fff;
 }
 
 .author {
   margin-bottom: 25px;
   display: block;
   width: 100%;
+  font-size: 2rem;
 }
 
 .social-links {
@@ -54,8 +68,13 @@
 
 .github, .linkedin {
   font-size: 2rem;
-  color: #831709;
+  color: #18435aff;
   text-decoration: none;
+  transition: all .3s ease;
+}
+
+.github:hover, .linkedin:hover {
+  color: #007c8fff;
 }
 
 .about-info {
@@ -63,12 +82,12 @@
 }
 
 .highlight {
-  color: #831709;
-  font-family: 'general-sans-medium', sans-serif;
+  color: #18435aff;
+  font-family: 'general-sans-semibold', sans-serif;
 }
 
 ul {
   list-style-type: none;
-  width: 75%;
+  width: 80ch;
   margin: 0;
 }

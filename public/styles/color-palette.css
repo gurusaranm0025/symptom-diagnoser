@@ -1,0 +1,15 @@
+/* CSS HEX */
+:root {
+    --teal-accent : #007c8fff; 
+    --lavender-web-secondary: #e1e5f2ff;
+    --rich-black-text: #131b23ff;
+    --white-background: #ffffffff;
+    --indigo-dye-primary: #18435aff;
+}
+
+/* CSS HSL */
+/* --teal: hsla(188, 100%, 28%, 1);
+--lavender-web: hsla(226, 40%, 92%, 1);
+--rich-black: hsla(210, 30%, 11%, 1);
+--white: hsla(0, 0%, 100%, 1);
+--indigo-dye: hsla(201, 58%, 22%, 1); */

@@ -43,6 +43,7 @@ nav {
 .name {
   font-family: "general-sans-semibold", sans-serif;
   padding: 0 10px;
+  color: #e1e5f2ff;
 }
 
 .about-div {
@@ -59,4 +60,57 @@ nav {
   padding-right: 20px;
   font-size: large;
   letter-spacing: 1.5px;
+  transition: all .3s ease;
+}
+
+.about:hover, .help:hover, .home:hover {
+  color: #007c8fff;
+}
+
+/* *** Background blurring styles *** */
+.background {
+	position: relative;
+	height: 100%;
+	width: 100%;
+	background-color: #FFFFFF;
+	overflow: hidden;
+}
+
+/* Blobs Animation CSS */
+
+.blob1-div, .blob2-div {
+	position: absolute;
+}
+
+.blob1-div {
+	top: -150px;
+	left: -400px;
+}
+
+.blob1-div svg {
+	width: 1100px;
+	height: auto;
+
+}
+
+.blob2-div {
+	bottom: -200px;
+	right: -700px;
+}
+
+.blob2-div svg {
+	width: 2000px;
+	height: auto;
+}
+
+/* Blur CSS */
+.background-blur {
+	/* padding-left: 20px; */
+	/* display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: flex-start; */
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.01);
+	backdrop-filter: blur(10px);
 }

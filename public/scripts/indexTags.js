@@ -74,3 +74,13 @@ submitButton.addEventListener("click", () => {
     submitButton.value = list
     console.log(submitButton.value)
 })
+
+//hover or focus on input tag change the border color
+const wrapperTags = document.querySelector('.wrapper-tags')
+input_tag.addEventListener("focus", () => {
+    wrapperTags.style.border = '3px solid #007c8fff';
+})
+
+input_tag.addEventListener('blur', () => {
+    wrapperTags.style.border = '3px solid #18435aff';
+})

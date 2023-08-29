@@ -1,42 +1,37 @@
 <%- include('partials/help-header.ejs') %>
 
-<nav class="navbar sticky">
-  <div class="name-div">
-    <span class="name">Symptom Diagnoser</span>
-  </div>
-  <div class="about-div">
-    <a href="/" class="home">HOME</a>
-    <a href="/about" class="about">ABOUT</a>
-  </div>
-</nav>
+<div class="background">
+  <%- include('svg.ejs') %>
+  <div class="background-blur">
+    <nav class="navbar sticky">
+      <div class="name-div">
+        <span class="name">Symptom Diagnoser</span>
+      </div>
+      <div class="about-div">
+        <a href="/" class="home">HOME</a>
+        <a href="/about" class="about">ABOUT</a>
+      </div>
+    </nav>
 
-<div class="docs">
-  <p>
-    Enter your symptoms in a comma "," seperated manner. <br><b>Example:</b> Itching, Skin
-    Rash, Nodal Skin Eruptions, etc.
-  </p>
-
-  <h4 class="limitations-heading">Limitations:</h4>
-  <p>
-    Right now it can only show predictions for the following symptoms:
-  </p>
-  
-  <div class="symptoms-list-grid">
-    <ul class="grid-item">
-      <% if (locals.firstHalf) { %>
-        <% firstHalf.forEach(element => { %>
-          <li><%= element %></li>
-        <% }); %>
-      <% } %>
-    </ul>
-    <ul class="grid-item">
-      <% if (locals.secondHalf) { %>
-        <% secondHalf.forEach(element => { %>
-          <li><%= element %></li>
-        <% }); %>
-      <% } %>  
-    </ul>
+    <div class="docs">
+      <ul>
+        <li>
+          Enter your symptoms in a comma "," seperated manner. <br />
+          <span class="highlight">Example:</span>
+          Itching, Skin Rash, Nodal Skin Eruptions, etc.
+        </li>
+        <li>
+          Right now our model show predictions for most of the common symptoms
+          which are shown in the suggestion while entering the symptoms.
+        </li>
+        <li>
+          After you've entered the symptoms, press <span class="highlight">'Enter'</span> to select them, after that press the <span class="highlight">'Submit'</span> button to get the result.
+        </li>
+      </ul>
+    </div>
   </div>
 </div>
+
+<script src="/scripts/blobAnim.js"></script>
 
 <%- include('partials/footer.ejs') %>
