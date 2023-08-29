@@ -70,19 +70,6 @@ input::placeholder{
   opacity: 1;
 }
 
-.input-border {
-  border: 2px solid #d44835;
-  background-color: #d44835;
-  padding-left: 5px;
-  transition: .3s ease-in-out;
-  margin-bottom: 15px;
-}
-
-.input-border:hover{
-  border: 2px solid #831709;
-  background-color: #831709;  
-}
-
 /* Abstract styles */
 .abstract {
   grid-row: 1 / 3;

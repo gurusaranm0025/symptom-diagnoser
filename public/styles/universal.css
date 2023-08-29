@@ -18,18 +18,11 @@ body {
   font-family: "general-sans", sans-serif;
   height: 100%;
   background-color: #fcedf8;
-  /* background-color: #f9e1d7; */
   scroll-behavior: smooth;
   line-height: 1.5;
+  margin: 0;
+  padding: 0;
 }
-
-/* .sticky {
-  position: fixed;
-  top: 0;
-  width: 90vw;
-  z-index: 100;
-} */
-
 
 nav {
   display: grid;
