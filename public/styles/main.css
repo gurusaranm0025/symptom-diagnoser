@@ -50,14 +50,14 @@
 
 .body-div {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: 1fr, 1fr, 1fr, 1fr;
   grid-template-rows: 2fr, 1fr;
   gap: 50px;
   height: 100%;
 }
 
 .form-div {
-  grid-column: 1 / 3;
+  grid-column: 1 / 2;
   grid-row: 1/2;
   display: flex;
   align-items: end;
@@ -170,15 +170,49 @@
   font-size: 14px; 
 }
 
-/* ** Abstract styles ** */
-.abstract {
+/* ** precautions-div styles ** */
+.precautions-div {
   grid-row: 1 / 3;
-  grid-column: 3/4;
+  grid-column: 2/5;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 0;
 }
 
-/* ** Gird result box ** */
-.result-box {
+.wrapper-result {
+  text-align: left;
+}
+
+.precautions, .severity {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.precautions-list, .severity-list {
+  font-size: 1.25rem;
+}
+
+/* ** result box ** */
+.result-div {
   grid-row: 2/3;
-  grid-column: 1/3;
+  grid-column: 1/2;
   padding-left: 20px;
+}
+
+.error {
+  font-size: 1.5rem;
+  color: red;
+}
+
+.disease-name {
+  font-weight: bold;
+  font-size: 2rem;
+}
+
+.description {
+  font-size: 1.25rem;
+  max-width: 60ch;
 }

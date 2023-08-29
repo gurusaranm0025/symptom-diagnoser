@@ -72,4 +72,5 @@ submitButton.addEventListener("click", () => {
     })
     console.log(list)
     submitButton.value = list
+    console.log(submitButton.value)
 })

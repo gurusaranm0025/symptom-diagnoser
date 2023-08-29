@@ -1,52 +1,97 @@
 <%- include('partials/header.ejs') %>
 
-  <!-- New Code -->
-  <div class="background">
-    <%- include('svg.ejs') %>
+<!-- New Code -->
+<div class="background">
+  <%- include('svg.ejs') %>
 
-      <div class="background-blur">
-        <!-- navbar -->
-        <nav class="navbar sticky">
-          <div class="name-div">
-            <span class="name">Symptom Diagnoser</span>
+  <div class="background-blur">
+    <!-- navbar -->
+    <nav class="navbar sticky">
+      <div class="name-div">
+        <span class="name">Symptom Diagnoser</span>
+      </div>
+      <div class="about-div">
+        <a href="/help" class="help">HELP</a>
+        <a href="/about" class="about">ABOUT</a>
+      </div>
+    </nav>
+    <!-- body-grid -->
+    <div class="body-div">
+      <!-- form-div -->
+      <div class="form-div">
+        <div class="parent-tags">
+          <label class="tags-heading" for="symptoms">Symptoms</label>
+          <div class="wrapper-tags">
+            <input
+              type="text"
+              list="symptomsList"
+              placeholder="Enter your symptoms here..."
+              name="symptoms"
+              id="symptoms"
+              class="input-tag"
+            />
+            <datalist id="symptomsList">
+              <% if(locals.symptomsList) { %>
+                <% symptomsList.forEach((symptom) => { %>
+                  <option><%= symptom %></option>
+                <% }) %>
+              <% } %>
+            </datalist>
           </div>
-          <div class="about-div">
-            <a href="/help" class="help">HELP</a>
-            <a href="/about" class="about">ABOUT</a>
-          </div>
-        </nav>
-        <!-- body-grid -->
-        <div class="body-div">
-          <!-- form-div -->
-          <div class="form-div">
-
-            <div class="parent-tags">
-              <label class="tags-heading" for="symptoms">Symptoms</label>
-              <div class="wrapper-tags">
-                <input type="text" placeholder="Enter your symptoms here..." name="symptoms" id="symptoms"
-                  class="input-tag" />
-              </div>
-              <span class="tags-length">0 Tags</span>
-              <form action="/predict" method="post">
-                <button type="submit" value="hi" name="btn" class="submit-btn">Submit</button>
-              </form>
-            </div>
-          </div>
-
-          <!-- abstract-div -->
-          <div class="abstract">
-
-          </div>
-
-          <!-- result -->
-          <div class="reslt-box">
-            
-          </div>
+          <span class="tags-length">0 Tags</span>
+          <form action="/predict" method="post">
+            <button
+              type="submit"
+              value="error"
+              name="symptoms"
+              class="submit-btn"
+            >
+              Submit
+            </button>
+          </form>
         </div>
       </div>
+
+      <!-- abstract-div -->
+      <div class="precautions-div">
+        <div class="wrapper-result">
+        <% if (locals.error) { %>
+          <h5 class="error"><%= error %></h5>
+          <% } %> 
+          <% if (locals.disease) { %>
+          <h3 class="disease-name"><%= disease %></h3>
+          <% } %> 
+          <% if (locals.description) { %>
+          <p class="description"><%= description %></p>
+          <% } %>
+  
+        <% if (locals.precautions) { %>
+        <h3 class="precautions">Precautions:</h3>
+        <ul class="precautions-list">
+          <% precautions.forEach(element => { %>
+          <li><%= element %></li>
+          <% }); %>
+        </ul>
+        <% } %> <% if(locals.severity) { %>
+        <h3 class="severity">Symptoms severity:</h3>
+        <ul class="severity-list">
+          <% for(let key in severity) { %>
+          <li><%= key %> : <%= severity[key] %></li>
+          <% } %>
+        </ul>
+        <% } %>
+      </div>
+      </div>
+
+      <!-- result -->
+      <div class="result-div">
+        
+      </div>
+    </div>
   </div>
+</div>
 
-  <script src="scripts/blobAnim.js"></script>
-  <script src="scripts/indexTags.js"></script>
+<script src="scripts/blobAnim.js"></script>
+<script src="scripts/indexTags.js"></script>
 
-  <%- include('partials/footer.ejs') %>
+<%- include('partials/footer.ejs') %>

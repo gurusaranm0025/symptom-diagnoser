@@ -12,6 +12,7 @@
 </nav>
 
 <div class="grid">
+
   <div class="result-box">
     <% if (locals.error) { %>
       <h5 class="error"><%= error %></h5>
@@ -22,6 +23,7 @@
     <p class="description"><%= description %></p>
     <% } %>
   </div>
+  
   <div class="extra-box">
     <% if (locals.precautions) { %>
     <h3 class="precautions">Precautions:</h3>
