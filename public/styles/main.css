@@ -151,18 +151,6 @@
   font-size: 1.25rem;
 }
 
-/* ** result box ** */
-.result-div {
-  grid-row: 2/3;
-  grid-column: 1/2;
-  padding-left: 20px;
-}
-
-.error {
-  font-size: 1.5rem;
-  color: red;
-}
-
 .disease-name {
   font-weight: bold;
   font-size: 2rem;
@@ -171,4 +159,33 @@
 .description {
   font-size: 1.25rem;
   max-width: 60ch;
+}
+
+.error {
+  font-size: 1.5rem;
+  color: red;
+}
+
+/* ** result box ** */
+.result-div {
+  grid-row: 2/3;
+  grid-column: 1/2;
+  /* padding-left: 20px; */
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.wikipedia-logo {
+  padding: 60px;
+}
+
+.wikipedia-logo>i{
+  text-decoration: none;
+  color: #18435aff;
+  font-size: 2rem;
+  transition: all .3s ease;
+}
+
+.wikipedia-logo>i:hover {
+  color: #007c8fff;
 }
