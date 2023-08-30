@@ -3,6 +3,7 @@ from model import predictDisease
 from description_script import get_description
 from precaution_script import get_precaution
 from symptom_severity_script import get_symptom_severity
+from wiki import get_wikiURL
 
 app = Flask(__name__)
 
@@ -34,6 +35,12 @@ def severity():
     data = request.json
     if data != "error":
         return get_symptom_severity(data)
+
+    
+@app.route("/wiki", methods=['POST'])
+def wikipedia():
+    data = request.json
+    return jsonify(get_wikiURL(data))
 
 
 if __name__ == "__main__":

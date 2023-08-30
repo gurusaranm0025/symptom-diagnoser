@@ -31,6 +31,7 @@ app.get("/", async (req, res) => {
         description: resultData.description,
         precautions: resultData.precautions,
         severity: resultData.severity,
+        wikiURL: resultData.wikiURL,
       });
     }
   } else {
@@ -69,11 +70,16 @@ app.post("/predict", async (req, res) => {
       `${pythonBackendAPI}/severity`,
       symptoms
     );
+    const wikiURL = await customFetchPost(
+      `${pythonBackendAPI}/wiki`,
+      result.final_prediction
+    )
     resultData = {
       disease: result.final_prediction,
       description: descriptionResult,
       precautions: precautionResult,
       severity: severityResult,
+      wikiURL: wikiURL,
       error: false,
     };
   }
