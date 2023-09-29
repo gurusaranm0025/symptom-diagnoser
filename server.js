@@ -4,6 +4,7 @@ import evaluate from "./serverScripts/evaluate.js";
 import customFetchPost from "./serverScripts/fetch.js";
 import getCurrentLocalTime from "./serverScripts/localeTime.js";
 import symptomsList from "./serverScripts/helpDetails.js";
+import helmet from "helmet";
 
 const pythonBackendAPI = "http://127.0.0.1:5000";
 
@@ -11,6 +12,7 @@ const app = express();
 const port = process.env.PORT || 3000;
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(helmet())
 
 var userAsked = false;
 var resultData = {};
@@ -89,13 +91,7 @@ app.post("/predict", async (req, res) => {
 // Help
 
 app.get("/help", (req, res) => {
-  // dividing the long array of symptoms into two half arrays to display them neatly
-  // and to reduce the code on templates
-  const middleIndex = Math.floor(symptomsList.length / 2);
-  const firstHalf = symptomsList.slice(0, middleIndex);
-  const secondHalf = symptomsList.slice(middleIndex);
-
-  res.render("help.ejs", { firstHalf: firstHalf, secondHalf: secondHalf });
+  res.render("help.ejs");
 });
 
 // About
