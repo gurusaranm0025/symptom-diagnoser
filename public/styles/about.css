@@ -67,14 +67,14 @@
 }
 
 .github, .linkedin {
-  font-size: 2rem;
-  color: #18435aff;
+  font-size: 1.75rem;
+  fill: #18435aff;
   text-decoration: none;
   transition: all .3s ease;
 }
 
 .github:hover, .linkedin:hover {
-  color: #007c8fff;
+  fill: #007c8fff;
 }
 
 .about-info {
