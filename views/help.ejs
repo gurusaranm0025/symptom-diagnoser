@@ -14,24 +14,31 @@
     </nav>
 
     <div class="docs">
-      <ul>
-        <li>
-          Enter your symptoms in a comma "," seperated manner. <br />
-          <span class="highlight">Example:</span>
-          Itching, Skin Rash, Nodal Skin Eruptions, etc.
-        </li>
-        <li>
-          Right now our model show predictions for most of the common symptoms
-          which are shown in the suggestion while entering the symptoms.
-        </li>
-        <li>
-          After you've entered the symptoms, press <span class="highlight">'Enter'</span> to select them, after that press the <span class="highlight">'Submit'</span> button to get the result.
-        </li>
-      </ul>
+      <div>
+        <h2>FAQ (Frequently Asked Questions)</h2>
+        <h3>1. How to get predictions?</h3>
+        <div>
+          <ul>
+            <li>
+              Enter your symptoms in a comma (",") separated manner. <br />
+              <span class="highlight">Example:</span> Itching, Skin Rash, Nodal
+              Skin Eruptions
+            </li>
+            <li>
+              Then press "Enter" to give these inputs as tags, which enables the
+              user to easily remove the symptoms if they want to.
+            </li>
+            <li>
+              Then press the "Submit" button which will give you the result or
+              prediction for your symptoms.
+            </li>
+          </ul>
+        </div>
+      </div>
     </div>
+
+    <script src="/scripts/blobAnim.js"></script>
+
+    <%- include('partials/footer.ejs') %>
   </div>
 </div>
-
-<script src="/scripts/blobAnim.js"></script>
-
-<%- include('partials/footer.ejs') %>

@@ -13,8 +13,8 @@
   src: url(/fonts/GeneralSans-Medium.ttf);
 }
 
-*{
-  font-family: 'general-sans', sans-serif;
+.docs{
+  font-family: 'general-sans-medium', sans-serif;
   line-height: 2;
 }
 
@@ -23,12 +23,21 @@
   font-size: 1.25rem;
   color: #131b23ff;
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
+}
+
+h2 {
+  /* font-family: "general-sans-medium", sans-serif; */
+  font-size: 2rem;
+  padding: 0;
+  margin: 0;
 }
 
 .docs>ul {
   list-style:circle;
-  width: 70ch;
+  width: 100ch;
   margin: 0;
   padding: 0;
 }
@@ -43,6 +52,7 @@ b {
 }
 
 .highlight {
-  color: #18435aff;
+  /* color: #18435aff; */
+  color: #007c8fff;
   font-family: 'general-sans-semibold', sans-serif;
 }
