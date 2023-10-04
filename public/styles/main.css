@@ -179,13 +179,13 @@
   padding: 60px;
 }
 
-.wikipedia-logo>i{
+.wikipedia-logo>svg{
   text-decoration: none;
-  color: #18435aff;
+  fill: #18435aff;
   font-size: 2rem;
   transition: all .3s ease;
 }
 
-.wikipedia-logo>i:hover {
-  color: #007c8fff;
+.wikipedia-logo>svg:hover {
+  fill: #007c8fff;
 }
