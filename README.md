@@ -26,6 +26,6 @@ I am using ensemble model in this project, it makes use of Navie Bayes, Random F
 
 ## Images
 
-![Image](https://drive.google.com/file/d/1cj9sNjevjFZTZ25ihejhKkZ3WWTF47Zs/view?usp=sharing)
+![Image](./MDImgs/sd_res.png)
 
-![Image](https://drive.google.com/file/d/1n-2MZ9CeCrhH5rT-OWz93cMWnOn9lfDf/view?usp=sharing)
+![Image](./MDImgs/sd_w.png)
