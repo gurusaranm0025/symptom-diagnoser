@@ -29,3 +29,9 @@ I am using ensemble model in this project, it makes use of Navie Bayes, Random F
 ![Image](./MDImgs/sd_res.png)
 
 ![Image](./MDImgs/sd_w.png)
+
+### Credits
+
+- [Dataset for training was from kaggle uploaded by PRANAY PATIL](https://www.kaggle.com/datasets/itachi9604/disease-symptom-description-dataset)
+
+- [Dataset for training the main model was from kaggle uploaded by KAUSHIL268](https://www.kaggle.com/datasets/kaushil268/disease-prediction-using-machine-learning?rvi=1)
