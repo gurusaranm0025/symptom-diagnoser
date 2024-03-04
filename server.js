@@ -21,11 +21,11 @@ var symptoms;
 // Root
 app.get("/", async (req, res) => {
   if (userAsked === false) {
-    res.render("index.ejs", {symptomsList: symptomsList});
+    res.render("index.ejs", { symptomsList: symptomsList });
   } else if (userAsked) {
     userAsked = false
     if (resultData.error) {
-      res.render("index.ejs", {symptomsList: symptomsList, error: resultData.errorMsg });
+      res.render("index.ejs", { symptomsList: symptomsList, error: resultData.errorMsg });
     } else if (!resultData.error) {
       res.render("index.ejs", {
         symptomsList: symptomsList,
@@ -33,11 +33,11 @@ app.get("/", async (req, res) => {
         description: resultData.description,
         precautions: resultData.precautions,
         severity: resultData.severity,
-        wikiURL: resultData.wikiURL,
+        // wikiURL: resultData.wikiURL,
       });
     }
   } else {
-    res.render("index.ejs", {symptomsList:symptomsList, error: "The life of the developer of this project, is screwed up big time, because this error is not supposed to occur, but it has occurred. Pray for his good health. "})
+    res.render("index.ejs", { symptomsList: symptomsList, error: "The life of the developer of this project, is screwed up big time, because this error is not supposed to occur, but it has occurred. Pray for his good health. " })
   }
 });
 
@@ -72,16 +72,16 @@ app.post("/predict", async (req, res) => {
       `${pythonBackendAPI}/severity`,
       symptoms
     );
-    const wikiURL = await customFetchPost(
-      `${pythonBackendAPI}/wiki`,
-      result.final_prediction
-    )
+    // const wikiURL = await customFetchPost(
+    //   `${pythonBackendAPI}/wiki`,
+    //   result.final_prediction
+    // )
     resultData = {
       disease: result.final_prediction,
       description: descriptionResult,
       precautions: precautionResult,
       severity: severityResult,
-      wikiURL: wikiURL,
+      // wikiURL: wikiURL,
       error: false,
     };
   }

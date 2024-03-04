@@ -3,9 +3,12 @@ import numpy as np
 from statistics import mode
 from data_dict import data_dict
 
-svm_model = joblib.load("/home/saran/Spaces/Work Space/Clg/PT1/Symptom Diagnoser/Backend (Python)/Saved_models/final_svm_model.pkl")
-nb_model = joblib.load("/home/saran/Spaces/Work Space/Clg/PT1/Symptom Diagnoser/Backend (Python)/Saved_models/final_nb_model.pkl")
-rf_model = joblib.load("/home/saran/Spaces/Work Space/Clg/PT1/Symptom Diagnoser/Backend (Python)/Saved_models/final_rf_model.pkl")
+svm_model = joblib.load(
+    "/home/saran/Spaces/Work Space/Clg/PT1/Symptom Diagnoser/Backend (Python)/Saved_models/final_svm_model.pkl")
+nb_model = joblib.load(
+    "/home/saran/Spaces/Work Space/Clg/PT1/Symptom Diagnoser/Backend (Python)/Saved_models/final_nb_model.pkl")
+rf_model = joblib.load(
+    "/home/saran/Spaces/Work Space/Clg/PT1/Symptom Diagnoser/Backend (Python)/Saved_models/final_rf_model.pkl")
 
 
 def predictDisease(symptoms):
@@ -16,21 +19,24 @@ def predictDisease(symptoms):
             index = data_dict['symptom_index'][symptom]
             input_data[index] = 1
         input_data = np.array(input_data).reshape(1, -1)
-        rf_prediction = data_dict["prediction_classes"][rf_model.predict(input_data)[0]]
-        nb_prediction = data_dict['prediction_classes'][nb_model.predict(input_data)[0]]
-        svm_prediction = data_dict['prediction_classes'][svm_model.predict(input_data)[0]]
+        rf_prediction = data_dict["prediction_classes"][rf_model.predict(input_data)[
+            0]]
+        nb_prediction = data_dict['prediction_classes'][nb_model.predict(input_data)[
+            0]]
+        svm_prediction = data_dict['prediction_classes'][svm_model.predict(input_data)[
+            0]]
         final_prediction = mode([rf_prediction, nb_prediction, svm_prediction])
         predictions = {
             "rf_model_prediction": rf_prediction,
             "nb_model_prediction": nb_prediction,
             "svm_model_prediction": svm_prediction,
             "final_prediction": final_prediction,
-            "error":False
+            "error": False
         }
-
+        print(" Predictions => ", predictions)
         return predictions
     except Exception as e:
-        print(str(e))
-        return {"final_prediction": "error", "error":True}
+        print(" exception =>", str(e))
+        return {"final_prediction": "error", "error": True}
 
-#predictDisease("Itching")
+# predictDisease("Itching")
