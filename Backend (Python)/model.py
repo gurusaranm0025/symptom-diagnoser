@@ -33,10 +33,11 @@ def predictDisease(symptoms):
             "final_prediction": final_prediction,
             "error": False
         }
-        print(" Predictions => ", predictions)
+        print("Symptoms => ", symptoms)
+        print("Predictions => ", predictions)
         return predictions
     except Exception as e:
-        print(" exception =>", str(e))
+        print("Error Exception =>", str(e))
         return {"final_prediction": "error", "error": True}
 
 # predictDisease("Itching")
