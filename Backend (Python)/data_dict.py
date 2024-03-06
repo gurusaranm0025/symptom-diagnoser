@@ -5,9 +5,9 @@ DATA_PATH = "/home/saran/Spaces/Work Space/Clg/PT1/Symptom Diagnoser/Backend (Py
 data = pd.read_csv(DATA_PATH).dropna(axis=1)
 
 encoder = LabelEncoder()
-data["prognosis"]=encoder.fit_transform(data["prognosis"])
+data["prognosis"] = encoder.fit_transform(data["prognosis"])
 
-X = data.iloc[:,:-1]
+X = data.iloc[:, :-1]
 
 symptoms = X.columns.values
 
@@ -21,5 +21,5 @@ data_dict = {
     "prediction_classes": encoder.classes_
 }
 
-print("data_dict variable sent successfully.")
+# print("data_dict variable sent successfully.")
 # print(data_dict)
