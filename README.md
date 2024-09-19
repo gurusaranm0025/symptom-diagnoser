@@ -20,9 +20,9 @@ I am using ensemble model in this project, it makes use of Navie Bayes, Random F
 
 ## Images
 
-![Image](./MDImgs/sd_res.png)
+![Image](./markdownImages/sd_res.png)
 
-![Image](./MDImgs/sd_w.png)
+![Image](./markdownImages/sd_w.png)
 
 ### Credits
 
